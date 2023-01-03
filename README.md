@@ -1,1 +1,1 @@
-Projet en Collaboration avec Guillaume et Mohammad.
+Projet en Collaboration avec Guillaume, Mohammad et Kevin.

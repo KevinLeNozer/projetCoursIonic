@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>saisie Cours</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="ionicForm" (ngSubmit)="onSubmit()" novalidate>
+    <ion-item>
+      <ion-label position="floating">Nom du cours :</ion-label>
+      <ion-input formControlName="nomCours" required="true" type="text" placeholder="Mathématique"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre d'étudiants :</ion-label>
+      <ion-input formControlName="nbEtudiant" required="true" type="number" placeholder="5" min="0"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nom du professeur :</ion-label>
+      <ion-input formControlName="nomProfesseur" required="true" type="text" placeholder="Dupond"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit">Validez</ion-button>
+    </ion-item>
+  </form>
+</ion-content>

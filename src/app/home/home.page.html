@@ -1,20 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- On n'affiche le bouton d'installation que si l'on sait que l'application n'a pas déjà été installée.
+    Si l'on clique sur le bouton, on va appeler la méthode onInstall de notre TypeScript, qui va ouvrir le popup d'installation -->
+    <button *ngIf="promptEvent" (click)="onInstall()">Install</button>
     <ion-title>
-      Blank
+      Header de la page
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openMenu($event)">
+        <ion-icon slot="icon-only"
+                  ios="ellipsis-horizontal"
+                  md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<!-- Le contenu de la page -->
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Le contenu de la page</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<!-- bas de la page -->
+  <div>
+    <strong>Le contenu de la page</strong>
   </div>
+  <button (click)="openAlert()">Ouvrir l'alerte</button>
 </ion-content>
+<!-- bas de la page -->
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Footer de la page</ion-title>
+  </ion-toolbar>
+</ion-footer>

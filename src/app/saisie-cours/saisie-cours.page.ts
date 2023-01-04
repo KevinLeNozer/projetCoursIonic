@@ -55,7 +55,8 @@ export class SaisieCoursPage implements OnInit {
       nomProfesseur: this.ionicForm?.value.nomProfesseur
       }
       this.listeCoursService.addNewToList(cour);
-      this.router.navigate(['/liste-cours'])
+      this.router.navigate(['/tabs/liste-cours']);
+      this.ionicForm.reset();
     }
   }
 }

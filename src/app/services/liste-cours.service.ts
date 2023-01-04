@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Preferences } from '@capacitor/preferences';
 import { UserCours } from '../userCours';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,17 +21,14 @@ export class ListeCoursService {
   }
 
   public async addNewToList(cour: UserCours) {
-    console.log(this.cours);
 
     this.cours.unshift(cour);
-    console.log(this.cours);
 
     Preferences.set({
       key: this.COURS_STORAGE,
       value: JSON.stringify(this.cours),
     });
   }
-
 
   public async deleteFromListeCours(newCour: UserCours){
 
@@ -57,4 +53,12 @@ export class ListeCoursService {
     });
   }
 
+  public async searchBar(recherche: string) {
+
+    for (const cour of this.cours) {
+      if(recherche == cour.nomCours || recherche == cour.nomProfesseur) {
+        
+      }
+    }
+  }
 }

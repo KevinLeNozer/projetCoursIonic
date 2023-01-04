@@ -16,10 +16,4 @@ export class ListeCoursPage implements OnInit {
     await this.listeCoursService.loadSaved();
   }
 
-  handleChange(event: any) {
-    this.isFocus = true;
-    const query = event.target.value.toLowerCase();
-    this.results = this.listeCoursService.cours.filter(d => d.nomCours.toLowerCase().indexOf(query) > -1);
-  }
-
 }

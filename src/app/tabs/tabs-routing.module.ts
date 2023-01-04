@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
+        path: 'recherche-cours',
+        loadChildren: () => import('../recherche-cours/recherche-cours.module').then( m => m.RechercheCoursPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'

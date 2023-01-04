@@ -10,7 +10,6 @@ import { ListeCoursService } from '../services/liste-cours.service';
 export class ListeCoursPage implements OnInit {
   public results = [...this.listeCoursService.cours];
   constructor(public listeCoursService: ListeCoursService) { }
-  isFocus = false;
 
   async ngOnInit() {
     await this.listeCoursService.loadSaved();

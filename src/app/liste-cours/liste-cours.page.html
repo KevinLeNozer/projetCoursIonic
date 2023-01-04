@@ -5,6 +5,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-button routerLink="/saisie-cours">Ajout</ion-button>
   <ion-grid>
     <ion-row>
       <ion-col><strong>Nom du cours</strong></ion-col>
@@ -16,7 +17,7 @@
       <ion-col>{{cour.nomCours}}</ion-col>
       <ion-col>{{cour.nbEtudiant}}</ion-col>
       <ion-col>{{cour.nomProfesseur}}</ion-col>
-      <ion-col><ion-button color="danger"><ion-icon name="close-circle-outline"></ion-icon></ion-button></ion-col>
+      <ion-col><ion-button color="danger" (click)="listeCoursService.deleteFromListeCours(cour)"><ion-icon name="close-circle-outline"></ion-icon></ion-button></ion-col>
     </ion-row>
   </ion-grid>
 

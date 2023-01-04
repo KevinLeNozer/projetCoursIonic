@@ -6,6 +6,7 @@ import { UserCours } from '../userCours';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ListeCoursService {
 
   public cours: UserCours[] = [];
@@ -32,5 +33,28 @@ export class ListeCoursService {
     });
   }
 
+
+  public async deleteFromListeCours(newCour: UserCours){
+
+    let newList = [];
+    let asDelete = false;
+
+    for (const cour of this.cours) {
+      if ((cour.nomCours !== newCour.nomCours
+          && cour.nomProfesseur !== newCour.nomProfesseur
+          && cour.nbEtudiant !== newCour.nbEtudiant) || asDelete == true){
+        newList.unshift(cour);
+      } else {
+        asDelete = true;
+      }
+    }
+
+    this.cours = newList;
+
+    await Preferences.set({
+      key: this.COURS_STORAGE,
+      value: JSON.stringify(this.cours),
+    });
+  }
 
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AlertController } from '@ionic/angular';
+import { ListeCoursService } from '../services/liste-cours.service';
+import { UserCours } from '../userCours';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-saisie-cours',
@@ -9,10 +12,14 @@ import { AlertController } from '@ionic/angular';
 })
 
 export class SaisieCoursPage implements OnInit {
+
   ionicForm: any;
   isSubmitted = false;
+
   constructor(public formBuilder: FormBuilder,
-              private alertController: AlertController) { }
+              private alertController: AlertController,
+              private listeCoursService: ListeCoursService,
+              private router: Router) { }
 
   ngOnInit() {
     this.ionicForm = this.formBuilder.group({
@@ -41,10 +48,14 @@ export class SaisieCoursPage implements OnInit {
     if (!this.ionicForm.valid) {
       this.presentAlert();
     } else {
-      console.log(this.ionicForm?.value.nomCours);
-      console.log(this.ionicForm?.value.nomProfesseur);
-      console.log(this.ionicForm?.value.nbEtudiant);
+      let cour: UserCours =
+      {
+      nomCours: this.ionicForm?.value.nomCours,
+      nbEtudiant: this.ionicForm?.value.nbEtudiant,
+      nomProfesseur: this.ionicForm?.value.nomProfesseur
+      }
+      this.listeCoursService.addNewToList(cour);
+      this.router.navigate(['/liste-cours'])
     }
   }
-
 }

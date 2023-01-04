@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListeCoursService } from '../services/liste-cours.service';
 
 @Component({
   selector: 'app-liste-cours',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeCoursPage implements OnInit {
 
-  constructor() { }
+  constructor(public listeCoursService: ListeCoursService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.listeCoursService.loadSaved();
   }
-
 }

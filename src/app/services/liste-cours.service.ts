@@ -38,7 +38,7 @@ export class ListeCoursService {
     for (const cour of this.cours) {
       if ((cour.nomCours !== newCour.nomCours
           && cour.nomProfesseur !== newCour.nomProfesseur
-          && cour.nbEtudiant !== newCour.nbEtudiant) || asDelete == true){
+          && cour.nbEtudiant !== newCour.nbEtudiant) || asDelete){
         newList.unshift(cour);
       } else {
         asDelete = true;
@@ -51,14 +51,5 @@ export class ListeCoursService {
       key: this.COURS_STORAGE,
       value: JSON.stringify(this.cours),
     });
-  }
-
-  public async searchBar(recherche: string) {
-
-    for (const cour of this.cours) {
-      if(recherche == cour.nomCours || recherche == cour.nomProfesseur) {
-        
-      }
-    }
   }
 }
